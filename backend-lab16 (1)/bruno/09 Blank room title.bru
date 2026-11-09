@@ -1,0 +1,20 @@
+meta {
+  name: 09 Blank room title
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}/rooms
+  body: json
+  auth: none
+}
+
+body:json {
+  {"title": "   "}
+}
+
+assert {
+  res.status: eq 422
+  res.body.detail[0].loc[1]: eq title
+}

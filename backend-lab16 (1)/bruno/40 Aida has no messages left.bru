@@ -1,0 +1,16 @@
+meta {
+  name: 40 Aida has no messages left
+  type: http
+  seq: 40
+}
+
+get {
+  url: {{baseUrl}}/users/1/messages
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.length: eq 0
+}

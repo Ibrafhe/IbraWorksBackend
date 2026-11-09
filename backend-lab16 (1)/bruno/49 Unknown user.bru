@@ -1,0 +1,21 @@
+meta {
+  name: 49 Unknown user
+  type: http
+  seq: 49
+}
+
+post {
+  url: {{baseUrl}}/auth/token
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  username: Nobody
+  password: kilc-chat-2026
+}
+
+assert {
+  res.status: eq 401
+  res.body.code: eq bad_credentials
+}

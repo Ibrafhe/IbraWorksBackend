@@ -1,0 +1,19 @@
+meta {
+  name: 36 General stats
+  type: http
+  seq: 36
+}
+
+get {
+  url: {{baseUrl}}/rooms/1/stats
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.messages: eq 3
+  res.body.pinned: eq 1
+  res.body.by_author.Aida: eq 2
+  res.body.by_author.Timur: eq 1
+}

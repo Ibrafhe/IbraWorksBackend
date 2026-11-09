@@ -1,0 +1,19 @@
+meta {
+  name: 21 Timur deletes message 1
+  type: http
+  seq: 21
+}
+
+delete {
+  url: {{baseUrl}}/rooms/1/messages/1
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token_timur}}
+}
+
+assert {
+  res.status: eq 403
+}

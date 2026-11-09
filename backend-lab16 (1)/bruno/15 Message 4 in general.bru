@@ -1,0 +1,24 @@
+meta {
+  name: 15 Message 4 in general
+  type: http
+  seq: 15
+}
+
+post {
+  url: {{baseUrl}}/rooms/1/messages
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {"text": "where is the meeting?"}
+}
+
+assert {
+  res.status: eq 201
+  res.body.id: eq 4
+}

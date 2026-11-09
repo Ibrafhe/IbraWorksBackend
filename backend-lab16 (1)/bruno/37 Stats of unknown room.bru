@@ -1,0 +1,16 @@
+meta {
+  name: 37 Stats of unknown room
+  type: http
+  seq: 37
+}
+
+get {
+  url: {{baseUrl}}/rooms/99/stats
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 404
+  res.body.code: eq room_not_found
+}

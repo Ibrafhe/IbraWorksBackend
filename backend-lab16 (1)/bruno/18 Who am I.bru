@@ -1,0 +1,20 @@
+meta {
+  name: 18 Who am I
+  type: http
+  seq: 18
+}
+
+get {
+  url: {{baseUrl}}/users/me
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+assert {
+  res.status: eq 200
+  res.body.name: eq Aida
+}

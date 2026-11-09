@@ -1,0 +1,16 @@
+meta {
+  name: 26 Limit zero in a room
+  type: http
+  seq: 26
+}
+
+get {
+  url: {{baseUrl}}/rooms/1/messages?limit=0
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 422
+  res.body.detail[0].loc[1]: eq limit
+}

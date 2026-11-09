@@ -1,0 +1,16 @@
+meta {
+  name: 35 Messages of unknown user
+  type: http
+  seq: 35
+}
+
+get {
+  url: {{baseUrl}}/users/99/messages
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 404
+  res.body.code: eq user_not_found
+}

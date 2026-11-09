@@ -1,0 +1,16 @@
+meta {
+  name: 39 General is gone
+  type: http
+  seq: 39
+}
+
+get {
+  url: {{baseUrl}}/rooms/1/messages
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 404
+  res.body.code: eq room_not_found
+}

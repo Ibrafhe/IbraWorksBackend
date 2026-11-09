@@ -1,0 +1,23 @@
+meta {
+  name: 45 Register Dana
+  type: http
+  seq: 45
+}
+
+post {
+  url: {{baseUrl}}/users
+  body: json
+  auth: none
+}
+
+body:json {
+  {"name": "Dana", "password": "dana-secret-77"}
+}
+
+assert {
+  res.status: eq 201
+  res.body.id: eq 3
+  res.body.name: eq Dana
+  res.body.password: isUndefined
+  res.body.password_hash: isUndefined
+}

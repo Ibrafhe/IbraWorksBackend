@@ -1,0 +1,17 @@
+meta {
+  name: 22 General messages
+  type: http
+  seq: 22
+}
+
+get {
+  url: {{baseUrl}}/rooms/1/messages
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.length: eq 3
+  res.body[2].id: eq 4
+}

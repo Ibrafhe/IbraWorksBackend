@@ -1,0 +1,19 @@
+meta {
+  name: 17 Message without a token
+  type: http
+  seq: 17
+}
+
+post {
+  url: {{baseUrl}}/rooms/1/messages
+  body: json
+  auth: none
+}
+
+body:json {
+  {"text": "who am I?"}
+}
+
+assert {
+  res.status: eq 401
+}

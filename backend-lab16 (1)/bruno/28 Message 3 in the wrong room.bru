@@ -1,0 +1,16 @@
+meta {
+  name: 28 Message 3 in the wrong room
+  type: http
+  seq: 28
+}
+
+get {
+  url: {{baseUrl}}/rooms/1/messages/3
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 404
+  res.body.code: eq message_not_found
+}

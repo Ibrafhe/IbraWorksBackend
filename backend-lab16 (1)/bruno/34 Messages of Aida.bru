@@ -1,0 +1,19 @@
+meta {
+  name: 34 Messages of Aida
+  type: http
+  seq: 34
+}
+
+get {
+  url: {{baseUrl}}/users/1/messages
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.length: eq 2
+  res.body[0].id: eq 4
+  res.body[1].id: eq 1
+  res.body[0].author.name: eq Aida
+}

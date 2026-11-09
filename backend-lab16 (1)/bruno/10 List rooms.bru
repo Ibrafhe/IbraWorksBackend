@@ -1,0 +1,16 @@
+meta {
+  name: 10 List rooms
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{baseUrl}}/rooms
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.length: eq 2
+}

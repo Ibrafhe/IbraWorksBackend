@@ -1,0 +1,24 @@
+meta {
+  name: 20 Timur edits message 1
+  type: http
+  seq: 20
+}
+
+patch {
+  url: {{baseUrl}}/rooms/1/messages/1
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token_timur}}
+}
+
+body:json {
+  {"text": "hacked"}
+}
+
+assert {
+  res.status: eq 403
+  res.body.code: eq not_your_message
+}

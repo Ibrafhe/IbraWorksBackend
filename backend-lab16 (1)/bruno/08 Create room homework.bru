@@ -1,0 +1,21 @@
+meta {
+  name: 08 Create room homework
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/rooms
+  body: json
+  auth: none
+}
+
+body:json {
+  {"title": "  homework  "}
+}
+
+assert {
+  res.status: eq 201
+  res.body.id: eq 2
+  res.body.title: eq homework
+}

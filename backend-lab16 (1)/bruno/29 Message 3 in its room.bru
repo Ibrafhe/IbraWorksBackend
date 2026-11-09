@@ -1,0 +1,16 @@
+meta {
+  name: 29 Message 3 in its room
+  type: http
+  seq: 29
+}
+
+get {
+  url: {{baseUrl}}/rooms/2/messages/3
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.text: eq lab 07 is done
+}

@@ -1,0 +1,20 @@
+meta {
+  name: 47 Token info
+  type: http
+  seq: 47
+}
+
+get {
+  url: {{baseUrl}}/auth/token-info
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+assert {
+  res.status: eq 200
+  res.body.sub: eq Aida
+}

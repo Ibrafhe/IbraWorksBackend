@@ -1,0 +1,16 @@
+meta {
+  name: 42 Delete it again
+  type: http
+  seq: 42
+}
+
+delete {
+  url: {{baseUrl}}/rooms/1
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 404
+  res.body.code: eq room_not_found
+}

@@ -1,0 +1,20 @@
+meta {
+  name: 03 Same name again
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/users
+  body: json
+  auth: none
+}
+
+body:json {
+  {"name": "Aida", "password": "kilc-chat-2026"}
+}
+
+assert {
+  res.status: eq 409
+  res.body.code: eq user_exists
+}

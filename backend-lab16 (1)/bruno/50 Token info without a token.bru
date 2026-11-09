@@ -1,0 +1,15 @@
+meta {
+  name: 50 Token info without a token
+  type: http
+  seq: 50
+}
+
+get {
+  url: {{baseUrl}}/auth/token-info
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 401
+}

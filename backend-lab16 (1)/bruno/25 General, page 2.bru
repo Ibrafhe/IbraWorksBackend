@@ -1,0 +1,17 @@
+meta {
+  name: 25 General, page 2
+  type: http
+  seq: 25
+}
+
+get {
+  url: {{baseUrl}}/rooms/1/messages?limit=2&offset=2
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.length: eq 1
+  res.body[0].id: eq 4
+}

@@ -1,0 +1,15 @@
+meta {
+  name: 38 Delete room general
+  type: http
+  seq: 38
+}
+
+delete {
+  url: {{baseUrl}}/rooms/1
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 204
+}

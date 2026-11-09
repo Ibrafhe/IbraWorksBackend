@@ -1,0 +1,19 @@
+meta {
+  name: 32 Delete message 3
+  type: http
+  seq: 32
+}
+
+delete {
+  url: {{baseUrl}}/rooms/2/messages/3
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+assert {
+  res.status: eq 204
+}

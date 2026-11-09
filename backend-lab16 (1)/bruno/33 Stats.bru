@@ -1,0 +1,19 @@
+meta {
+  name: 33 Stats
+  type: http
+  seq: 33
+}
+
+get {
+  url: {{baseUrl}}/stats
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.users: eq 2
+  res.body.rooms: eq 2
+  res.body.messages: eq 3
+  res.body.pinned: eq 1
+}

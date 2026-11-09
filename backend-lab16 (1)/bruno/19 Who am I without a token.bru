@@ -1,0 +1,15 @@
+meta {
+  name: 19 Who am I without a token
+  type: http
+  seq: 19
+}
+
+get {
+  url: {{baseUrl}}/users/me
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 401
+}

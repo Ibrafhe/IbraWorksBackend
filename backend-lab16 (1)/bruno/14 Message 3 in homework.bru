@@ -1,0 +1,25 @@
+meta {
+  name: 14 Message 3 in homework
+  type: http
+  seq: 14
+}
+
+post {
+  url: {{baseUrl}}/rooms/2/messages
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {"text": "lab 07 is done"}
+}
+
+assert {
+  res.status: eq 201
+  res.body.id: eq 3
+  res.body.room_id: eq 2
+}

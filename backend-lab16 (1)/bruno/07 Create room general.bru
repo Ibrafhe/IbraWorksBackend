@@ -1,0 +1,20 @@
+meta {
+  name: 07 Create room general
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/rooms
+  body: json
+  auth: none
+}
+
+body:json {
+  {"title": "general"}
+}
+
+assert {
+  res.status: eq 201
+  res.body.id: eq 1
+}

@@ -1,0 +1,16 @@
+meta {
+  name: 04 Unknown user
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/users/99
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 404
+  res.body.code: eq user_not_found
+}

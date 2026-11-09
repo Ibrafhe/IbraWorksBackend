@@ -1,0 +1,19 @@
+meta {
+  name: 41 Stats after the delete
+  type: http
+  seq: 41
+}
+
+get {
+  url: {{baseUrl}}/stats
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.users: eq 2
+  res.body.rooms: eq 1
+  res.body.messages: eq 0
+  res.body.pinned: eq 0
+}

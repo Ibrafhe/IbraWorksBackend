@@ -1,0 +1,24 @@
+meta {
+  name: 13 Message 2 in general
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{baseUrl}}/rooms/1/messages
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token_timur}}
+}
+
+body:json {
+  {"text": "on my way"}
+}
+
+assert {
+  res.status: eq 201
+  res.body.id: eq 2
+}
